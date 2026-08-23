@@ -1,35 +1,39 @@
-'use client';
+// app/checkout/success/page.js (or .jsx)
+"use client";
 
-import { useSearchParams } from 'next/navigation';
-import Link from 'next/link';
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
-export default function CheckoutSuccessPage() {
+// 1. Inner component that reads query params or session info
+function SuccessContent() {
   const searchParams = useSearchParams();
-  const sessionId = searchParams.get('session_id');
+  const sessionId = searchParams.get("session_id");
 
   return (
-    <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4">
-      
-      <h1 className="text-3xl font-bold text-slate-900 mb-2">
-        Payment Successful!
-      </h1>
-      
-      <p className="text-slate-600 mb-6 max-w-md">
-        Thank you for your order. We have received your payment and sent a confirmation email with details.
+    <div className="max-w-md mx-auto text-center py-12 px-4">
+      <div className="text-4xl mb-4">🎉</div>
+      <h1 className="text-2xl font-bold mb-2">Order Confirmed!</h1>
+      <p className="text-brand-muted mb-6">
+        Thank you for your purchase. We have received your order and are processing it.
       </p>
-
       {sessionId && (
-        <p className="text-xs text-slate-400 mb-6 font-mono">
-          Order ID: {sessionId}
+        <p className="text-xs text-brand-muted bg-brand-surface p-2 rounded border border-brand-border">
+          Session ID: {sessionId}
         </p>
       )}
-
-      <Link
-        href="/"
-        className="px-6 py-3 bg-slate-900 text-white rounded-lg font-medium hover:bg-slate-800 transition-colors"
-      >
-        Continue Shopping
-      </Link>
     </div>
+  );
+}
+
+// 2. Outer page export wrapped in Suspense
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={
+      <div className="max-w-md mx-auto text-center py-12">
+        <p className="text-brand-muted">Loading order confirmation...</p>
+      </div>
+    }>
+      <SuccessContent />
+    </Suspense>
   );
 }
