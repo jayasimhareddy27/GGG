@@ -1,69 +1,109 @@
 import Image from "next/image";
+import Link from "next/link";
+import { FIRM_DETAILS } from "@/public/constants/firmdetails";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.js
-            </code>{" "}
-            file.
+    <div className="overflow-x-hidden -mt-16 sm:-mt-24">
+      {/* Full-Bleed Edge-to-Edge Hero Section */}
+      <section className="relative w-screen left-[50%] right-[50%] -mx-[50vw] min-h-screen flex items-center justify-center text-center px-4 sm:px-8 lg:px-12">
+        {/* Full-Bleed Image Background */}
+        <div className="absolute inset-0 -z-10 w-full h-full overflow-hidden">
+          <Image
+            src="/Herosection.png"
+            alt="Handcrafted Skincare Background"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-90 [mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-surface/30 to-brand-surface" />
+        </div>
+
+        {/* Hero Content - Expanded Width */}
+        <div className="max-w-7xl w-full mx-auto space-y-6 sm:space-y-8 relative z-10 pt-20 pb-12">
+          <span className="inline-block px-5 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider bg-brand-accent text-brand-primary shadow-sm">
+            Handcrafted Skincare & Body Butters
+          </span>
+
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-brand-primary leading-none max-w-6xl mx-auto">
+            {FIRM_DETAILS.name}
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="text-xl sm:text-2xl lg:text-3xl text-brand-muted leading-relaxed max-w-4xl mx-auto font-medium">
+            {FIRM_DETAILS.tagline}
           </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-5 pt-4">
+            <Link
+              href="/products"
+              className="btn-brand-primary px-10 py-4 rounded-full text-lg font-semibold shadow-md hover:scale-105 transition-transform"
+            >
+              Shop Collection
+            </Link>
+            <Link
+              href="/Requestpricing"
+              className="px-10 py-4 rounded-full text-lg font-semibold text-brand-primary border border-brand-border bg-brand-surface/90 hover:bg-brand-accent/50 transition-colors shadow-sm"
+            >
+              Request Bulk Pricing
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+      </section>
+
+      {/* Subsequent Page Content - Expanded Container Widths */}
+      <div className="space-y-16 sm:space-y-24 mt-8 sm:mt-12 px-4 sm:px-8 lg:px-12">
+        {/* Feature Highlights Grid */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[90rem] mx-auto relative z-10">
+          <div className="bg-brand-surface/80 backdrop-blur-md p-8 sm:p-10 rounded-xl border border-brand-border space-y-4 shadow-sm">
+            <div className="w-12 h-12 rounded-full bg-brand-accent text-brand-primary flex items-center justify-center text-xl font-bold">
+              🌿
+            </div>
+            <h3 className="text-xl font-semibold text-brand-primary">Pure & Natural</h3>
+            <p className="text-brand-muted text-base leading-relaxed">
+              Formulated with raw shea butter and rich natural oils designed to nourish dry skin and maintain a long-lasting glow.
+            </p>
+          </div>
+
+          <div className="bg-brand-surface/80 backdrop-blur-md p-8 sm:p-10 rounded-xl border border-brand-border space-y-4 shadow-sm">
+            <div className="w-12 h-12 rounded-full bg-brand-accent text-brand-primary flex items-center justify-center text-xl font-bold">
+              ✨
+            </div>
+            <h3 className="text-xl font-semibold text-brand-primary">Signature Fragrances</h3>
+            <p className="text-brand-muted text-sm sm:text-base leading-relaxed">
+              Custom-blended scents created to soothe your skin and relax your senses throughout the day.
+            </p>
+          </div>
+
+          <div className="bg-brand-surface/80 backdrop-blur-md p-8 sm:p-10 rounded-xl border border-brand-border space-y-4 shadow-sm">
+            <div className="w-12 h-12 rounded-full bg-brand-accent text-brand-primary flex items-center justify-center text-xl font-bold">
+              📦
+            </div>
+            <h3 className="text-xl font-semibold text-brand-primary">Wholesale & Events</h3>
+            <p className="text-brand-muted text-sm sm:text-base leading-relaxed">
+              Bulk orders, party favors, and corporate gift packages packaged and customized to your needs.
+            </p>
+          </div>
+        </section>
+
+        {/* Local Callout Section */}
+        <section className="bg-brand-surface border border-brand-border rounded-2xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 max-w-[90rem] mx-auto">
+          <div className="space-y-2 text-center md:text-left">
+            <h2 className="text-3xl font-bold text-brand-primary">
+              Located in {FIRM_DETAILS.location.city}
+            </h2>
+            <p className="text-brand-muted text-base max-w-2xl">
+              {FIRM_DETAILS.location.serviceArea} {FIRM_DETAILS.hours}
+            </p>
+          </div>
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`tel:${FIRM_DETAILS.phone.raw}`}
+            className="btn-brand-primary px-8 py-4 rounded-full text-base font-semibold whitespace-nowrap shadow-sm"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+            Call {FIRM_DETAILS.phone.display}
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+        </section>
+      </div>
     </div>
   );
 }

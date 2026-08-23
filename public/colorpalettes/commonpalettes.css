@@ -1,0 +1,73 @@
+:root {
+  /* Brand Core Palette */
+  --color-brand-primary: #78350f;     /* Deep Amber */
+  --color-brand-secondary: #92400e;   /* Hover State */
+  --color-brand-accent: #fef3c7;      /* Light Accent */
+
+  /* Background Colors */
+  --color-brand-bg: #fafaf9;          /* Page Background */
+  --color-brand-surface: #ffffff;     /* Card/Container Surface */
+
+  /* Text Colors */
+  --color-brand-text: #292524;        /* Primary Text */
+  --color-brand-muted: #78716c;       /* Muted/Secondary Text */
+
+  /* Border Colors */
+  --color-brand-border: #e7e5e4;      /* Section Dividers */
+}
+
+/* Background Utilities */
+.bg-brand-bg {
+  background-color: var(--color-brand-bg);
+}
+.bg-brand-surface {
+  background-color: var(--color-brand-surface);
+}
+.bg-brand-primary {
+  background-color: var(--color-brand-primary);
+}
+.bg-brand-accent {
+  background-color: var(--color-brand-accent);
+}
+
+/* Text Utilities */
+.text-brand-text {
+  color: var(--color-brand-text);
+}
+.text-brand-muted {
+  color: var(--color-brand-muted);
+}
+.text-brand-primary {
+  color: var(--color-brand-primary);
+}
+.text-brand-surface {
+  color: var(--color-brand-surface);
+}
+
+/* Border Utilities */
+.border-brand-border {
+  border-color: var(--color-brand-border);
+}
+
+/* Button & Link Utilities */
+.btn-brand-primary {
+  background-color: var(--color-brand-primary);
+  color: var(--color-brand-surface);
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.btn-brand-primary:hover {
+  background-color: var(--color-brand-secondary);
+}
+
+.nav-link-active {
+  background-color: var(--color-brand-accent);
+  color: var(--color-brand-primary);
+}
+.nav-link-inactive {
+  color: var(--color-brand-muted);
+}
+.nav-link-inactive:hover {
+  color: var(--color-brand-primary);
+  background-color: var(--color-brand-accent);
+}
